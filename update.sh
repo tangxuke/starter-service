@@ -1,13 +1,13 @@
 git checkout .
 git pull
-docker rm -f redis-service-write
-docker rmi tangxuke/redis-service-write
-docker build -t tangxuke/redis-service-write .
-docker run --name redis-service-write -d -p 20001:20001 tangxuke/redis-service-write
-docker push tangxuke/redis-service-write
+docker rm -f starter-service
+docker rmi tangxuke/starter-service
+docker build -t tangxuke/starter-service .
+docker run --name starter-service -d -p 4001:4001 tangxuke/starter-service
+docker push tangxuke/starter-service
 sleep 5s
 echo
-curl https://tangxuke.cn/service/redis/write/
+curl https://tangxuke.cn/service/starter
 echo
 echo
 echo
