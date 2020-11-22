@@ -1,21 +1,21 @@
 const { DefaultApplication } = require('txk-mvc')
-const { app_name, app_desc, app_port, service_url } = require('./config')
+const { app } = require('./config')
 const router = require('./router')
 
 class MyApplication extends DefaultApplication {
     getName() {
-        return app_name
+        return app.name
     }
     getDesc() {
-        return app_desc
+        return app.desc
     }
     getPort() {
-        return app_port
+        return app.port
     }
     getServiceUrl() {
-        return service_url
+        return app.url
     }
 }
 
-const app = new MyApplication(router)
-app.listen()
+const myApp = new MyApplication(router)
+myApp.listen()

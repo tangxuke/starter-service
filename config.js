@@ -1,8 +1,9 @@
-const { AppConfig } = require('txk-mvc')
-
-module.exports = new AppConfig({
-    app_name: 'starter-service',
-    app_desc: '这是一个微服务模板',
-    app_port: 3000,
-    service_url: 'http://localhost:3000'
-})
+module.exports = {
+    app: {
+        name: 'starter-service',
+        desc: 'this is a starter micro service',
+        port: 3000,
+        url: 'https://tangxuke.cn/service/starter'
+    },
+    //other config
+}

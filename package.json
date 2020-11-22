@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "koa": "^2.13.0",
     "koa-router": "^9.1.0",
-    "txk-mvc": "^1.0.74"
+    "txk-mvc": "^1.0.111"
   }
 }
