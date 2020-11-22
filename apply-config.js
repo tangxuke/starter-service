@@ -32,3 +32,9 @@ update_sh = update_sh.replace(/\{name\}/g, app.name)
     .replace(/\{port\}/g, app.port)
     .replace(/\{url\}/g, app.url)
 fs.writeFileSync('./update.sh', update_sh)
+
+//修改package.json
+const json = require('./package.json')
+json.name = app.name
+json.description = app.desc
+fs.writeFileSync('./package.json', JSON.stringify(json))
