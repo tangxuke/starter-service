@@ -1,6 +1,6 @@
 FROM keymetrics/pm2
 LABEL maintainer="tangxuke"
-EXPOSE 4001
+EXPOSE 5001
 ADD . /node
 ADD /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 WORKDIR /node

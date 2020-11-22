@@ -20,7 +20,10 @@ function getRoutes(pathname) {
         } else {
             if (path.extname(file) === '.js') {
                 const basename = path.basename(file, '.js')
-                const method = basename.replace(/(post|get|options|put|patch|delete|head)-(.+)/, '$1')
+                let method = basename.replace(/(post|get|options|put|patch|delete|head)-(.+)/g, '$1')
+                if (!['post', 'get', 'options', 'put', 'patch', 'delete', 'head'].includes(method)) {
+                    method = ''
+                }
                 const fn = basename.replace(/(post|get|options|put|patch|delete|head)-(.+)/, '$2')
                 const params = (fn.match(/_[^_]+/g) || []).map(item => item.replace(/^_(.+)/, '$1'))
                 params.unshift('')
@@ -30,7 +33,7 @@ function getRoutes(pathname) {
                  * @type {(ctx)=>void}
                  */
                 const middle = require(filePath)
-                if (typeof middle === 'function') {
+                if (typeof middle === 'function' && method) {
                     router.register(router_path, [method], middle)
                 }
             }

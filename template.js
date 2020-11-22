@@ -1,7 +1,5 @@
-const { BaseRequest, BaseController, Validator_NotEmpty } = require("txk-mvc");
+const { BaseRequest, BaseController } = require("txk-mvc");
 const Koa = require('koa')
-
-//访问示范：http://localhost:3000/demo?name=you
 
 /**
  * 服务
@@ -10,8 +8,6 @@ const Koa = require('koa')
  */
 async function Service(data) {
     //your service code
-    const { name } = data.query
-    return 'hello,' + name
 }
 
 
@@ -22,9 +18,8 @@ async function Service(data) {
  */
 async function Request(ctx) {
     const request = new BaseRequest(ctx)
-    return request.setFn('your-service-name')
+    return request.setFn('{your-service-name}')
         //your validators
-        .useQuery('name', new Validator_NotEmpty())
         .check()
 }
 
